@@ -3,6 +3,8 @@
 ```go
 package main
 
+import "github.com/uccmen/redisutil"
+
 var redisInstance *util.RedisInstance
 
 func init() {
