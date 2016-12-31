@@ -14,7 +14,7 @@ type RedisInstance struct {
 	pool     *redis.Pool
 	host     string
 	port     int
-	password string // not implemented
+	password string
 }
 
 func NewRedis() *RedisInstance {
@@ -27,6 +27,7 @@ func NewRedis() *RedisInstance {
 
 	r := &RedisInstance{}
 
+	r.password = os.Getenv("REDIS_PASSWORD")
 	r.host = os.Getenv("REDIS_HOST")
 	port, err := strconv.Atoi(os.Getenv("REDIS_PORT"))
 	if err != nil {
